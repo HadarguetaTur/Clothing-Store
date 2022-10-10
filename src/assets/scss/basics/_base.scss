@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: OpenSans, sans-serif;
+  font-size: 16px;
+  color: aliceblue;
+
+
+  
+}
+
+body {
+  margin: 0;
+  min-height:100vh;
+  padding: 0;
+
+
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+  padding: 0;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+
+
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+
+  * {
+    pointer-events: none;
+  }
+}
+
+
+

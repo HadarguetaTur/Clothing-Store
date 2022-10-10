@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// import './assets/scss/global.scss' 
+import Directory from './components/directory/directory.cpmponent';
 
-function App() {
+
+const App=()=> {
+
+  const categories=[
+    {
+      id:1,
+      title:"Baby",
+      imageUrl:require('./assets/images/Baby.jpg') 
+    },
+    {
+      id:2,
+      title:"toddlers",
+      imageUrl:require('./assets/images/toddlers.jpg')
+    },
+    {
+      id:3,
+      title:"Children",
+      imageUrl:require('./assets/images/Children.jpg')
+    },
+    {
+      id:4,
+      title:"Teenagers",
+      imageUrl:require('./assets/images/Teenagers.jpg')
+    },
+    {
+      id:5,
+      title:"Adults",
+      imageUrl:require('./assets/images/Adults.jpg')
+    },
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Directory categories={categories}/>
   );
 }
 
