@@ -1,5 +1,6 @@
 
 import Directory from '../../components/directory/directory.cpmponent';
+import { Outlet } from 'react-router-dom';
 
 
 
