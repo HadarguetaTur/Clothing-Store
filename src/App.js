@@ -1,38 +1,22 @@
-// import './assets/scss/global.scss' 
-import Directory from './components/directory/directory.cpmponent';
+import './assets/scss/global.scss'
+import Home from './routes/home/home.component';
+import { Route, Routes,Outlet } from 'react-router-dom';
+import Navigation from './routes/navigation/navigation.component';
 
 
-const App=()=> {
+const Shop =()=>{
+  return <h1>Shop</h1>
+}
 
-  const categories=[
-    {
-      id:1,
-      title:"Baby",
-      imageUrl:require('./assets/images/Baby.jpg') 
-    },
-    {
-      id:2,
-      title:"toddlers",
-      imageUrl:require('./assets/images/toddlers.jpg')
-    },
-    {
-      id:3,
-      title:"Children",
-      imageUrl:require('./assets/images/Children.jpg')
-    },
-    {
-      id:4,
-      title:"Teenagers",
-      imageUrl:require('./assets/images/Teenagers.jpg')
-    },
-    {
-      id:5,
-      title:"Adults",
-      imageUrl:require('./assets/images/Adults.jpg')
-    },
-  ]
+const App = () => {
   return (
-    <Directory categories={categories}/>
+    <Routes>
+      <Route path='/' element={<Navigation/>}>
+        <Route index element={<Home/>}/>
+        <Route path='shop' element={<Shop/>}/>
+      </Route>
+    </Routes>
+
   );
 }
 
