@@ -22,18 +22,18 @@ body {
 }
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  font-weight: normal;
-  padding: 0;
-  display: flex;
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p {
+//   margin: 0;
+//   font-weight: normal;
+//   padding: 0;
+//   display: flex;
+// }
 
 a {
   text-decoration: none;
@@ -43,14 +43,7 @@ a {
 
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
 
-  * {
-    pointer-events: none;
-  }
-}
 
 
 
