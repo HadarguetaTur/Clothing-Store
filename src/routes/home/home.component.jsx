@@ -6,33 +6,34 @@ import { Outlet } from 'react-router-dom';
 
 const Home=()=> {
 
-  const categories=[
+
+  const categories = [
     {
-      id:1,
-      title:"Baby",
-      imageUrl:require('../../assets/images/Baby.jpg') 
+      id: 1,
+      title: 'hats',
+      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
     },
     {
-      id:2,
-      title:"toddlers",
-      imageUrl:require('../../assets/images/toddlers.jpg')
+      id: 2,
+      title: 'jackets',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
     },
     {
-      id:3,
-      title:"Children",
-      imageUrl:require('../../assets/images/Children.jpg')
+      id: 3,
+      title: 'sneakers',
+      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
     },
     {
-      id:4,
-      title:"Teenagers",
-      imageUrl:require('../../assets/images/Teenagers.jpg')
+      id: 4,
+      title: 'womens',
+      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
     },
     {
-      id:5,
-      title:"Adults",
-      imageUrl:require('../../assets/images/Adults.jpg')
+      id: 5,
+      title: 'mens',
+      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     },
-  ]
+  ];
   return (
     <Directory categories={categories}/>
   );

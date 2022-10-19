@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useState} from "react"
 import './sign-up-form.style.scss'
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase.utils"
+import {
+    createAuthUserWithEmailAndPassword,
+    createUserDocumentFromAuth
+} from "../../utils/firebase.utils"
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
 const defaultFormFields = {
     displayName: '',
     email: '',
@@ -18,7 +22,7 @@ const SingUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields
 
-    console.log(formFields)
+
 
     const resetFormField = () => {
         setFormFields(defaultFormFields)
@@ -38,16 +42,12 @@ const SingUpForm = () => {
                 email,
                 password
             )
-
             await createUserDocumentFromAuth(user, { displayName });
             resetFormField()
-
         }
         catch (error) {
             console.log('user creation encountered an error', error)
-
         }
-
     }
 
     const handleChange = (event) => {
