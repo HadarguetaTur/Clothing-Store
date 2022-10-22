@@ -1,5 +1,5 @@
 import { useState} from "react"
-import './sign-up-form.style.scss'
+import {SignUpContainer} from './sign-up-form.style.jsx'
 import {
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth
@@ -56,7 +56,7 @@ const SingUpForm = () => {
 
     }
     return (
-        <div className="sing-up-container">
+        <SignUpContainer >
             <h2>Don't have an account?</h2>
             <span>Sign up with your email and password </span>
             <form onSubmit={handeleSubmit}>
@@ -93,7 +93,7 @@ const SingUpForm = () => {
                     value={confirmPassword} />
                 <Button type="submit">Sing up</Button>
             </form>
-        </div>
+        </SignUpContainer>
     )
 }
 
