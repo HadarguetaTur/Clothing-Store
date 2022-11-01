@@ -1,11 +1,18 @@
-import { useState} from "react"
-import {SignUpContainer} from './sign-up-form.style.jsx'
+import { useState } from "react"
+import { useDispatch } from 'react-redux';
+
+import FormInput from "../form-input/form-input.component";
+import Button from "../button/button.component";
+
 import {
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth
 } from "../../utils/firebase/firebase.utils.js"
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+
+import { SignUpContainer } from './sign-up-form.style.jsx'
+import { signUpStart } from '../../store/user/user.action';
+
+
 
 const defaultFormFields = {
     displayName: '',
@@ -21,7 +28,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const SingUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { displayName, email, password, confirmPassword } = formFields
-
+    const dispatch = useDispatch();
 
 
     const resetFormField = () => {
@@ -30,25 +37,21 @@ const SingUpForm = () => {
 
     const handeleSubmit = async (event) => {
         event.preventDefault();
-
-
         if (password !== confirmPassword) {
             alert('passwords do not match')
             return;
         }
-
         try {
-            const { user } = await createAuthUserWithEmailAndPassword(
-                email,
-                password
-            )
-            await createUserDocumentFromAuth(user, { displayName });
-            resetFormField()
+            dispatch(signUpStart(email, password, displayName));
+            resetFormField ();
+        } catch (error) {
+            if (error.code === 'auth/email-already-in-use') {
+                alert('Cannot create user, email already in use');
+            } else {
+                console.log('user creation encountered an error', error);
+            }
         }
-        catch (error) {
-            console.log('user creation encountered an error', error)
-        }
-    }
+    };
 
     const handleChange = (event) => {
         const { name, value } = event.target

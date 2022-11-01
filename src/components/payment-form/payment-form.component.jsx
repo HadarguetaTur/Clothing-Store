@@ -26,18 +26,16 @@ const PaymentForm = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ amount: amount * 100 }),
-        }).then((res) => {
-            console.log(res.json());
-            return res.json();
-        });
+        }).then((res) =>
+            res.json()
+        );
 
         const clientSecret = response.paymentIntent.client_secret;
-
         const paymentResult = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
-                    name: currentUser ? currentUser.displayName : 'Yihua Zhang',
+                    name: currentUser ? currentUser.displayName : 'Guest',
                 },
             },
         });
@@ -57,7 +55,11 @@ const PaymentForm = () => {
             <FormContainer onSubmit={paymentHandler}>
                 <h2>Credit card Payment</h2>
                 <CardElement />
-                <Button disabled={isProcessingPayment} buttonType={BUTTON_TYPE_CLASSES.inverted}>Pay now</Button>
+                <Button isLoading={isProcessingPayment}
+                    buttonType={BUTTON_TYPE_CLASSES.inverted}
+                >
+                    Pay now
+                </Button>
             </FormContainer>
         </PaymentFormContainer>
     )
