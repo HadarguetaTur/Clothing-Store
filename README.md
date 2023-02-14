@@ -1,4 +1,4 @@
-#Clothing-Store
+# Clothing-Store
 
 I have developed a complete eCommerce platform, I’m building the front end using React, backend deployed on Firebase Cloud Services, integrating with Redux, Redux-saga, GraphQL, Stripe, typescript, and testing.
 
